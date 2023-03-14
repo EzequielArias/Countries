@@ -1,8 +1,9 @@
 const express = require('express')
 const router = express.Router()
+const { createActivity, getActivitiesOrFilter } = require('../controllers/activities')
 
-router.get('/', (req, res) => {
-    res.send("completed")
-})
+router.get('/', getActivitiesOrFilter)
+
+router.post('/',createActivity) 
 
 module.exports = router;

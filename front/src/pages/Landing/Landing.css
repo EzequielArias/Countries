@@ -1,0 +1,133 @@
+.initial-container {
+    height: 100vh;
+}
+
+.initial-container img {
+    /* Add the blur effect */
+    filter: blur(8px);
+   -webkit-filter: blur(6px);
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.initial-container h1 {
+    font-size: 70px;
+    font-weight: 900;
+    font-family: 'Dancing Script', cursive;
+    position: absolute;
+    right: 25%;
+    top: 30%;
+
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color:black;
+    color: white;
+}
+
+.initial-container p {
+    position: absolute;
+    top: 50%;
+    left : 20%;
+    
+    font-family: sans-serif;
+    font-weight: 600;
+    color: #fff;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color:black;
+}
+
+/*** ESTILOS BOTÓN GROW ELLIPSE ***/
+.ov-btn-grow-ellipse {
+  background: #4741d7; /* color de fondo */
+  color: #000; /* color de fuente */
+  border: 2px solid #4741d7; /* tamaño y color de borde */
+  padding: 16px 20px;
+  border-radius: 15px; /* redondear bordes */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+}
+.ov-btn-grow-ellipse:hover {
+  color: #000;/* color de fuente hover */
+}
+.ov-btn-grow-ellipse::after {
+  content: "";
+  background: #f5f5dc ; /* color de fondo hover */
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  border-radius: 50%;
+  left: -50%;
+  right: -50%;
+  top: -150%;
+  bottom: -150%;
+  transform: scale(0, 0);
+  transition: all 0.4s ease;
+}
+.ov-btn-grow-ellipse:hover::after {
+  transition: all 0.6s ease-out;
+  transform: scale(1, 1);
+}
+
+.ov-btn-grow-ellipse {
+    position: absolute;
+    top: 60%;
+    left: 30%;
+}
+
+@media screen and (max-width : 768px){
+  .initial-container h1 {
+    font-size: 90px;
+    top : 25%;
+    right : 18%
+  }
+
+  .initial-container p {
+    left : 30%;
+  }
+
+  .ov-btn-grow-ellipse {
+    left : 35%;
+  }
+}
+
+@media screen and (min-width : 768px) and (max-width : 1024px){
+  .initial-container h1 {
+    font-size: 90px;
+    top : 25%;
+    right : 37%
+  }
+
+  .initial-container p {
+    left : 35%;
+  }
+
+  .ov-btn-grow-ellipse {
+    left : 43%;
+  }
+  .initial-container{
+    width: 100%;
+  }
+  .initial-container img {
+    object-fit: fill;
+  }
+}
+
+@media screen and (min-width : 1024px) and (max-width : 1440px){
+  .initial-container h1 {
+    font-size: 100px;
+    top : 25%;
+    right : 40%
+  }
+
+  .initial-container p {
+    left : 40%;
+  }
+
+  .ov-btn-grow-ellipse {
+    left : 45%;
+  }
+}

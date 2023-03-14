@@ -1,0 +1,72 @@
+.body-container {
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-image: url('../../assets/mapamundiback.jpg');
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    height: 100%;
+    background: black;
+    padding: 25px 30px;
+    border-radius: 5px;
+}
+
+.container h1 {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+
+.user-details {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items:center;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    height: 100%;
+}
+
+.input-box input, .input-box select {
+    width: 50%;
+    font-size: 15px;
+}
+
+.input-box label {
+    color: white;
+}
+
+.input-box span {
+    color: red;
+}
+
+.form-button{
+    margin: 20px 0 20px;
+}
+
+.form-button button {
+    padding: 5px 15px 5px 15px;
+    color: black;
+    background-color: orange;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.form-button button:hover {
+    background: white;
+}
