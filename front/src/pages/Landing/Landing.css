@@ -1,28 +1,42 @@
 .initial-container {
     height: 100vh;
+    background-image: url('../../assets/mapaMundi.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+  }
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.initial-container img {
-    /* Add the blur effect */
+.title-container a {
+  width: 60px;
+}
+/*.initial-container{
+     Add the blur effect 
     filter: blur(8px);
    -webkit-filter: blur(6px);
 
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
+}*/
 
 .initial-container h1 {
     font-size: 70px;
     font-weight: 900;
     font-family: 'Dancing Script', cursive;
-    position: absolute;
-    right: 25%;
-    top: 30%;
 
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color:black;
     color: white;
+    z-index: 1;
 }
 
 .initial-container p {
@@ -72,62 +86,3 @@
   transform: scale(1, 1);
 }
 
-.ov-btn-grow-ellipse {
-    position: absolute;
-    top: 60%;
-    left: 30%;
-}
-
-@media screen and (max-width : 768px){
-  .initial-container h1 {
-    font-size: 90px;
-    top : 25%;
-    right : 18%
-  }
-
-  .initial-container p {
-    left : 30%;
-  }
-
-  .ov-btn-grow-ellipse {
-    left : 35%;
-  }
-}
-
-@media screen and (min-width : 768px) and (max-width : 1024px){
-  .initial-container h1 {
-    font-size: 90px;
-    top : 25%;
-    right : 37%
-  }
-
-  .initial-container p {
-    left : 35%;
-  }
-
-  .ov-btn-grow-ellipse {
-    left : 43%;
-  }
-  .initial-container{
-    width: 100%;
-  }
-  .initial-container img {
-    object-fit: fill;
-  }
-}
-
-@media screen and (min-width : 1024px) and (max-width : 1440px){
-  .initial-container h1 {
-    font-size: 100px;
-    top : 25%;
-    right : 40%
-  }
-
-  .initial-container p {
-    left : 40%;
-  }
-
-  .ov-btn-grow-ellipse {
-    left : 45%;
-  }
-}
