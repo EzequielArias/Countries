@@ -93,7 +93,7 @@ export const reducer = (state = reduxStore , {type,payload}) => {
         case SEARCH_BY_NAME:
 
           let data = [...state.filtered.length > 0 ? state.filtered : state.countries]
-
+          // eslint-disable-next-line
           let result = data.filter((el) => {
             if(el.name.toLowerCase().includes(payload.toLowerCase()))
             return el

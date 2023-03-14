@@ -1,3 +1,8 @@
+.wallpaper {
+  width: 100%;
+  background-image: url('../../assets/mapamundiback.jpg');
+}
+
 .btn-detail{
   text-decoration: none;
   padding: 0.7rem;
@@ -27,6 +32,7 @@
   max-width: 800px;
   margin: auto;
   height:100%;
+  width: 100%;
 }
 
 .product-image-container {

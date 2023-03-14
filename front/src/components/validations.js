@@ -9,6 +9,7 @@ export const validateFields = (
     else errors.name = ""
 
   if (
+    // eslint-disable-next-line
     !typeof difficulty == "number" ||
     !(difficulty <= 5) ||
     !(difficulty >= 1)

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { getCountryById } from "../../redux/actions/index";
 import './Detail.css'
 
@@ -23,10 +23,9 @@ const Detail = () => {
   }, []);
 
   return (
+    <>
+    <div className="wallpaper">
     <div className='product-detail-container'>
-      <Link className="btn-detail" to={'/home'}>
-        Ir al Home
-      </Link>
       <div className='product-image-container'>
         <img src={flag_image} alt={name} className='product-image' />
       </div>
@@ -56,6 +55,9 @@ const Detail = () => {
         </div>
       </div>
     </div>
+    </div>
+    
+    </>
   );
 };
 

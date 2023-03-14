@@ -54,8 +54,8 @@ const SubHeader = () => {
         <div className='filters-container'>
         <select id='OrderBy-HS' onChange={handlePopulation}>
           <option value='' defaultValue={'Ordenar por Poblacion'}>Filtrar por poblacion</option>
-          <option value='mayor'>Mayor HS</option>
-          <option value='menor'>Menor HS</option>
+          <option value='mayor'>Mayor Poblacion</option>
+          <option value='menor'>Menor Poblacion</option>
         </select>
 
         <select id='FilterByActivity' onChange={handleActivity}>   

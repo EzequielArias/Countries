@@ -1,0 +1,12 @@
+.Navbar-container {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    border-bottom: 1px solid orange;
+}
+
+.nav-box {
+    margin-left: 10px;
+}
