@@ -12,7 +12,8 @@ let reduxStore = {
     countries : [],
     filtered : [],
     activity : [],
-    detail : {}
+    detail : {},
+    filterActivity : []
 }
 
 export const reducer = (state = reduxStore , {type,payload}) => {
@@ -108,6 +109,8 @@ export const reducer = (state = reduxStore , {type,payload}) => {
 
         case GET_ACTIVITIES:
 
+        
+
         return {
           ...state,
           activity : (state.activity = payload)
@@ -115,10 +118,16 @@ export const reducer = (state = reduxStore , {type,payload}) => {
 
         case FILTER_BY_ACTIVITY:
         
+        if(payload == 'clean'){
+          return {
+            ...state,
+            filterActivity : []
+          }
+        }
 
         return {
           ...state,
-          countries : [...payload]
+          filterActivity : [...payload]
         }
 
         case GET_COUNTRY_BY_ID:

@@ -63,6 +63,13 @@ export const filterByActivity = (activityId) => {
 
     return async function(dispatch){
 
+        if(activityId === 'Filtrar por actividad'){
+            return dispatch({
+                type : FILTER_BY_ACTIVITY,
+                payload : 'clean'
+            })
+        }
+
         let res = await axios.get(`http://localhost:3001/activities?id=${activityId}`)
         return dispatch({
             type : FILTER_BY_ACTIVITY,

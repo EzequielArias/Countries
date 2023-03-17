@@ -60,7 +60,7 @@ const SubHeader = () => {
 
         <select id='FilterByActivity' onChange={handleActivity}>   
             <option 
-             defaultValue={'filter by activity'}>Filtrar por actividad</option>
+             defaultValue={''}>Filtrar por actividad</option>
             { 
             activity.map((el) => {
               return (

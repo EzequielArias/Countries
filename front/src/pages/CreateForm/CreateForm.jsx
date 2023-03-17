@@ -72,7 +72,6 @@ const CreateForm = () => {
               <label>Temporada</label>
               <select
                 name="season"
-                value={form.season}
                 onBlur={handleBlur}
                 onChange={handleChange}
               >

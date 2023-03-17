@@ -6,13 +6,15 @@
 
     justify-content: center;
     margin-top: 19px;
+    padding-bottom: 5px;
 }
 
 .pagination-container button {
-    padding: 1rem;
+    padding: 0.5rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 
+    
     background-color: black;
     color: white;
     cursor: pointer;

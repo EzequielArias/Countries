@@ -31,12 +31,12 @@ const createActivity = async (req, res) => {
 const getActivitiesOrFilter = async (req, res) => {
   let { id } = req.query;
   let getAct = await Activity.findAll();
-  
-  if(!id){
+
+  if(!id ){
     res.json(getAct).status(200)
     return
   }     
-
+  
   try {
       let result = await Pivot.findAll({
         where : {

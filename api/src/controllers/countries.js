@@ -5,12 +5,30 @@ const { Op } = require("sequelize");
  const fillDB = async (req, res) => {
     let db = await Country.findAll({ include: [{model : Activity}] })
     if(db.length > 0){
+        console.log('primer instancia')
         return db
     }else{
+       try {
         let get = await axios.get('https://restcountries.com/v3/all')
-        let list = get.data
     
-    for (let i = 0; i < list.length; i++) {
+        let countries = get.data.map((country) => ({
+            id : country.cca3,
+            name : (country.name.common).toLowerCase(),
+            flag_image : country.flags[1],
+            continent : country.continents[0],
+            sub_region : country.subregion === undefined ? 'unknow' : country.subregion,
+            area : country.area,
+            population : country.population,
+            capital : country.capital === undefined ? 'unknown' : country.capital[0]
+        }))
+        
+        await Country.bulkCreate(countries)
+        console.log("data agregada")
+       } catch (error) {
+        console.log(error)
+       }
+
+   /* for (let i = 0; i < list.length; i++) {
     
         await Country.create({
             id : list[i].cca3,
@@ -22,7 +40,7 @@ const { Op } = require("sequelize");
             population : list[i].population,
             capital : list[i].capital === undefined ? 'unknown' : list[i].capital[0]
         })      
-    }
+    }*/
 
     return await Country.findAll({ include: [{model : Activity}] })
     }

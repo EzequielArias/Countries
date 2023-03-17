@@ -38,7 +38,9 @@ export const useForm = (initialForm, validateForm) => {
 
     const handleSubmit = async (e) => {
       e.preventDefault()
+      console.log(form)
       let errs = await validateForm(form)
+      console.log(Object.keys(errs))
       if(Object.keys(errs).length === 0)
       {
         dispatch(createActivity(form))

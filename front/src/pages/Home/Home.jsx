@@ -8,7 +8,16 @@ import './Home.css'
 
 const Home = () => {
 
-  let countries = useSelector((state) => state.filtered.length ? state.filtered : state.countries)
+  let countries = useSelector((state) => {
+    //state.filtered.length ? state.filtered : state.countries
+    if(state.filterActivity.length){
+      return state.filterActivity
+    }else if(state.filtered.length){
+      return state.filtered
+    }else{
+      return state.countries
+    }
+  })
   let dispatch = useDispatch()
 
   useEffect(() => {
