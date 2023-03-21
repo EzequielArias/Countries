@@ -6,6 +6,7 @@ import CreateForm from './pages/CreateForm/CreateForm'
 import React from 'react'
 import Footer from './components/Footer/Footer'
 import Navbar from './components/Navbar/Navbar'
+import './App.css'
 
 function App() {
 

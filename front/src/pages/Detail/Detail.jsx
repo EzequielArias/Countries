@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {  useParams } from "react-router-dom";
 import { getCountryById } from "../../redux/actions/index";
+import Loader from "../../components/Loader/Loader";
 import './Detail.css'
 
 const Detail = () => {
@@ -24,7 +25,10 @@ const Detail = () => {
 
   return (
     <>
-    <div className="wallpaper">
+    {
+      !name ? (<Loader/>) : 
+      (
+        <div className="wallpaper">
     <div className='product-detail-container'>
       <div className='product-image-container'>
         <img src={flag_image} alt={name} className='product-image' />
@@ -56,6 +60,8 @@ const Detail = () => {
       </div>
     </div>
     </div>
+      )
+    }
     
     </>
   );

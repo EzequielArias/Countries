@@ -1,6 +1,6 @@
 .initial-container {
     height: 100vh;
-    background-image: url('../../assets/mapaMundi.jpg');
+    background-image: url('../../assets/mapaMundi.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -9,6 +9,7 @@
 
     
   }
+  
 .title-container {
   display: flex;
   flex-direction: column;

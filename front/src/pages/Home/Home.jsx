@@ -4,6 +4,7 @@ import { getCountries } from '../../redux/actions/index'
 import  Pagination  from '../../components/Pagination/Pagination'
 import Card from '../../components/Card/Card'
 import SubHeader from '../../components/Subheader/SubHeader'
+import Loader from '../../components/Loader/Loader'
 import './Home.css'
 
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
   let dispatch = useDispatch()
 
   useEffect(() => {
-    if(countries.length < 1) dispatch(getCountries())
+    dispatch(getCountries())
   },[dispatch])
 
   const [ currentPage, setCurrentPage ] = useState(1)
@@ -36,7 +37,7 @@ const Home = () => {
     <SubHeader/>
       {
         currentPosts.length === 0 
-        ? ( <h1>Cargando....</h1> )
+        ? (<Loader/>)
         : 
         (
           <div className='background-wallpaper'>

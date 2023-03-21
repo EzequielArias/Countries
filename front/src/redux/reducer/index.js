@@ -22,6 +22,7 @@ export const reducer = (state = reduxStore , {type,payload}) => {
 
             return {
                 ...state,
+                detail : {},
                 countries : (state.countries = payload)
             }            
 
