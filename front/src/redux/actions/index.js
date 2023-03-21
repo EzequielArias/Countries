@@ -81,7 +81,6 @@ export const filterByActivity = (activityId) => {
 export const getCountryById = (id) => {
     return async function(dispatch){
         let res = await axios.get(`http://localhost:3001/countries/${id}`)
-        console.log(res.data[0])
         return dispatch({
             type : GET_COUNTRY_BY_ID,
             payload : res.data[0]

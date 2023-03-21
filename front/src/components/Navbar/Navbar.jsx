@@ -1,46 +1,46 @@
 import React from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./Navbar.css";
 
 const Navbar = () => {
-  let { id } = useParams();
   let location = useLocation();
-  console.log(location.pathname)
+  let { id } = useSelector((state) => state.detail)
+
   return (
     <>
-      {
-        location.pathname === '/' ? '' : 
-        location.pathname === "/home" ? (
-          <div className="Navbar-container">
-            <div className="nav-box">
-              <Link to={"/home/create"} className="btn-detail">
-                Crear actividad
-              </Link>
-            </div>
+      {location.pathname === "/" ? (
+        ""
+      ) : location.pathname === "/home" ? (
+        <div className="Navbar-container">
+          <div className="nav-box">
+            <Link to={"/home/create"} className="link-nav">
+              Crear actividad
+            </Link>
           </div>
-        ) : location.pathname === `/home/${id}` ? (
-          <div className="Navbar-container">
-            <div className="nav-box">
-              <Link to={"/home"} className="btn-detail">
-                Ir al Home
-              </Link>
-            </div>
-            <div className="nav-box">
-              <Link to={"/home/create"} className="btn-detail">
-                Crear actividad
-              </Link>
-            </div>
+        </div>
+      ) : location.pathname === `/home/${id}` ? (
+        <div className="Navbar-container">
+          <div className="nav-box">
+            <Link to={"/home"} className="link-nav">
+              Ir al Home
+            </Link>
           </div>
-        ) : (
-          <div className="Navbar-container">
-            <div className="nav-box">
-              <Link to={"/home"} className="btn-detail">
-                Ir al Home
-              </Link>
-            </div>
+          <div className="nav-box">
+            <Link to={"/home/create"} className="link-nav">
+              Crear actividad
+            </Link>
           </div>
-        )
-      }
+        </div>
+      ) : (
+        <div className="Navbar-container">
+          <div className="nav-box">
+            <Link to={"/home"} className="link-nav">
+              Ir al Home
+            </Link>
+          </div>
+        </div>
+      )}
     </>
   );
 };

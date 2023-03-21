@@ -8,6 +8,7 @@ import './Detail.css'
 
 const Detail = () => {
   let { id } = useParams();
+  console.log(id)
   const dispatch = useDispatch();
   const {
     name,

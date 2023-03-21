@@ -24,3 +24,8 @@
     border-bottom: 5px solid orange;
 }
 
+.current{
+    background-color: orange !important;
+    color: black !important;
+    border: 1px solid black;
+}

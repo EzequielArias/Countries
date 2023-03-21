@@ -7,6 +7,10 @@
     border-bottom: 1px solid orange;
 }
 
-.nav-box {
-    margin-left: 10px;
+
+.link-nav {
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
 }
+

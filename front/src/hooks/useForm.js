@@ -35,12 +35,21 @@ export const useForm = (initialForm, validateForm) => {
       handleChange(e)
       setErr(validateForm(form))
     }
+    const deleteCountry = (e) => {
+      console.log(e.target.textContent)
+
+      let removeCountry = form.nation.filter((c) => c !== e.target.textContent && c !== 'Paises')
+      setForm((current) => {
+        return {
+          ...current,
+          nation : removeCountry
+        }
+      })
+    }
 
     const handleSubmit = async (e) => {
       e.preventDefault()
-      console.log(form)
       let errs = await validateForm(form)
-      console.log(Object.keys(errs))
       if(Object.keys(errs).length === 0)
       {
         dispatch(createActivity(form))
@@ -55,7 +64,8 @@ export const useForm = (initialForm, validateForm) => {
       handleChange,
       handleSubmit,
       form,
-      err
+      err,
+      deleteCountry
     }
 }
 

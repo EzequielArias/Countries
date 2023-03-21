@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background-image: url('../../assets/mapamundiback.jpg');
+    background-color: #969696;
 }
 
 .container {
@@ -20,6 +20,7 @@
     font-size: 25px;
     font-weight: 500;
 }
+
 
 
 .user-details {
@@ -69,4 +70,23 @@
 
 .form-button button:hover {
     background: white;
+}
+
+.countries_contain{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.countries-div{
+    color: white;
+    margin: 5px;
+    padding: 5px;
+    font-size: 12px;
+    border: 2px solid white;
+}
+
+.countries-div:hover {
+    transform: scale(1.1);
+    cursor: pointer;
 }
