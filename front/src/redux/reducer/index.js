@@ -95,7 +95,11 @@ export const reducer = (state = reduxStore, { type, payload }) => {
 
       if (payload === "") return { ...state, filtered: [], e404: false };
 
-      if (!result) return { ...state, e404: true };
+      if (result.length === 0) {
+        return { 
+          ...state,
+           e404: true };
+      }
 
       return {
         ...state,

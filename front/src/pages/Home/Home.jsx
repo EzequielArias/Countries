@@ -10,15 +10,14 @@ import "./Home.css";
 
 const Home = () => {
   let countries = useSelector((state) => {
-
     //state.filtered.length ? state.filtered : state.countries
     if (state.filterActivity.length) {
       return state.filterActivity;
     } else if (state.filtered.length > 0 || state.e404) {
       return {
-        filtered : state.filtered,
-        err : state.e404
-      }
+        filtered: state.filtered,
+        err: state.e404,
+      };
     } else {
       return state.countries;
     }
@@ -30,48 +29,53 @@ const Home = () => {
     dispatch(getCountries());
   }, [dispatch]);
 
-  
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
   const lastPostsIndex = currentPage * postsPerPage;
   const firstPostsIndex = lastPostsIndex - postsPerPage;
-  const currentPosts = 
-  countries.filtered 
-  ? countries.filtered.slice(firstPostsIndex, lastPostsIndex)
-  : countries.slice(firstPostsIndex, lastPostsIndex);
-
-
+  const currentPosts = countries.filtered
+    ? countries.filtered.slice(firstPostsIndex, lastPostsIndex)
+    : countries.slice(firstPostsIndex, lastPostsIndex);
 
   return (
     <>
-      <SubHeader />
-      {currentPosts.length === 0 ? (
-        <Loader />
-      ) : !countries ? <NotFound/> : (
-        <div className="background-wallpaper">
-          <div className="home_card_container">
-            {currentPosts.map((el) => {
-              return (
-                <Card
-                  key={el.id}
-                  id={el.id}
-                  name={el.name}
-                  flag_image={el.flag_image}
-                  continent={el.continent}
-                />
-              );
-            })}
-          </div>
-          <Pagination
-            totalPosts={countries.length}
-            postsPerPage={postsPerPage}
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
-          />
-        </div>
+      {countries.err ? (
+        <>
+          <SubHeader />
+          <NotFound />
+        </>
+      ) : (
+        <>
+          <SubHeader />
+          {currentPosts.length === 0 ? (
+            <Loader />
+          ) : (
+            <div className="background-wallpaper">
+              <div className="home_card_container">
+                {currentPosts.map((el) => {
+                  return (
+                    <Card
+                      key={el.id}
+                      id={el.id}
+                      name={el.name}
+                      flag_image={el.flag_image}
+                      continent={el.continent}
+                    />
+                  );
+                })}
+              </div>
+              <Pagination
+                totalPosts={countries.length}
+                postsPerPage={postsPerPage}
+                setCurrentPage={setCurrentPage}
+                currentPage={currentPage}
+              />
+            </div>
+          )}
+        </>
       )}
     </>
   );
 };
 
-export default Home
+export default Home;
