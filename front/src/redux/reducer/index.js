@@ -13,7 +13,8 @@ let reduxStore = {
     filtered : [],
     activity : [],
     detail : {},
-    filterActivity : []
+    filterActivity : [],
+    e404 : true
 }
 
 export const reducer = (state = reduxStore , {type,payload}) => {
@@ -94,15 +95,17 @@ export const reducer = (state = reduxStore , {type,payload}) => {
 
         case SEARCH_BY_NAME:
 
-          let data = [...state.filtered.length > 0 ? state.filtered : state.countries]
+          let data = [...state.countries]
           // eslint-disable-next-line
           let result = data.filter((el) => {
             if(el.name.toLowerCase().includes(payload.toLowerCase()))
             return el
           }) 
-          
-          if(!result) return {...state, filtered : []}
+
+          if(!payload) return state
       
+          if(!result) return {...state, e404 : false}
+
           return {
             ...state,
             filtered : result,

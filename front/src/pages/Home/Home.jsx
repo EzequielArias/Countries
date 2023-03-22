@@ -5,20 +5,22 @@ import Pagination from "../../components/Pagination/Pagination";
 import Card from "../../components/Card/Card";
 import SubHeader from "../../components/Subheader/SubHeader";
 import Loader from "../../components/Loader/Loader";
+import NotFound from "../../NotFound/NotFound";
 import "./Home.css";
 
 const Home = () => {
   let countries = useSelector((state) => {
+    console.log(state.filtered)
     //state.filtered.length ? state.filtered : state.countries
     if (state.filterActivity.length) {
       return state.filterActivity;
     } else if (state.filtered.length) {
-      return state.filtered;
+      return state.filtered, state.e404
     } else {
       return state.countries;
     }
   });
-
+  
   let dispatch = useDispatch();
 
   useEffect(() => {
@@ -37,7 +39,7 @@ const Home = () => {
       <SubHeader />
       {currentPosts.length === 0 ? (
         <Loader />
-      ) : (
+      ) : !countries ? <NotFound/> : (
         <div className="background-wallpaper">
           <div className="home_card_container">
             {currentPosts.map((el) => {

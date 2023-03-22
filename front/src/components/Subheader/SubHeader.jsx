@@ -27,6 +27,7 @@ const SubHeader = () => {
     const handleInput = (e) => {
       e.preventDefault()
       setSearch(e.target.value)
+      dispatch(searchByName(search))
     }
 
     const searchInput = () => {
