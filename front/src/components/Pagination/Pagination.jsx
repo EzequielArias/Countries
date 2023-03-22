@@ -29,7 +29,7 @@ const Pagination = ({
   };
 
   const handlePrevbtn = () => {
-    if(currentPage === 1) return
+    if (currentPage === 1) return;
 
     setCurrentPage(currentPage - 1);
 
@@ -45,10 +45,10 @@ const Pagination = ({
       {pages.map((page, index) => {
         if (page < maxPageNumberLimit + 1 && page > minPageNumberLimit) {
           return (
-            <button 
-            key={index} 
-            onClick={() => setCurrentPage(page)}
-            className={currentPage === page ? 'current' : 'notCurrent'}
+            <button
+              key={index}
+              onClick={() => setCurrentPage(page)}
+              className={currentPage === page ? "current" : "notCurrent"}
             >
               {page}
             </button>

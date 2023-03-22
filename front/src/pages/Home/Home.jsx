@@ -10,29 +10,37 @@ import "./Home.css";
 
 const Home = () => {
   let countries = useSelector((state) => {
-    console.log(state.filtered)
+
     //state.filtered.length ? state.filtered : state.countries
     if (state.filterActivity.length) {
       return state.filterActivity;
-    } else if (state.filtered.length) {
-      return state.filtered, state.e404
+    } else if (state.filtered.length > 0 || state.e404) {
+      return {
+        filtered : state.filtered,
+        err : state.e404
+      }
     } else {
       return state.countries;
     }
   });
-  
+
   let dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getCountries());
   }, [dispatch]);
 
+  
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(9);
-
   const lastPostsIndex = currentPage * postsPerPage;
   const firstPostsIndex = lastPostsIndex - postsPerPage;
-  const currentPosts = countries.slice(firstPostsIndex, lastPostsIndex);
+  const currentPosts = 
+  countries.filtered 
+  ? countries.filtered.slice(firstPostsIndex, lastPostsIndex)
+  : countries.slice(firstPostsIndex, lastPostsIndex);
+
+
 
   return (
     <>
@@ -66,4 +74,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Home
