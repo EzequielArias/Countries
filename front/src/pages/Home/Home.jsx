@@ -9,20 +9,14 @@ import NotFound from "../../NotFound/NotFound";
 import "./Home.css";
 
 const Home = () => {
-  let countries = useSelector((state) => {
-    //state.filtered.length ? state.filtered : state.countries
-    if (state.filterActivity.length) {
-      return state.filterActivity;
-    } else if (state.filtered.length > 0 || state.e404) {
-      return {
-        filtered: state.filtered,
-        err: state.e404,
-      };
-    } else {
-      return state.countries;
+  let countriesFilter = useSelector((state) => {
+    return {
+      filtered: state.filtered,
+      err: state.e404,
     }
-  });
-
+  })
+let countries = useSelector((state) => state.countries)
+let totalPosts = countriesFilter.filtered.length ? countriesFilter.filtered.length : countries.length
   let dispatch = useDispatch();
 
   useEffect(() => {
@@ -33,10 +27,10 @@ const Home = () => {
   const [postsPerPage] = useState(9);
   const lastPostsIndex = currentPage * postsPerPage;
   const firstPostsIndex = lastPostsIndex - postsPerPage;
-  const currentPosts = countries.filtered
-    ? countries.filtered.slice(firstPostsIndex, lastPostsIndex)
+  const currentPosts =  countriesFilter.filtered && countriesFilter.filtered.length > 0
+    ? countriesFilter.filtered.slice(firstPostsIndex, lastPostsIndex)
     : countries.slice(firstPostsIndex, lastPostsIndex);
-
+    
   return (
     <>
       {countries.err ? (
@@ -65,7 +59,7 @@ const Home = () => {
                 })}
               </div>
               <Pagination
-                totalPosts={countries.length}
+                totalPosts={totalPosts}
                 postsPerPage={postsPerPage}
                 setCurrentPage={setCurrentPage}
                 currentPage={currentPage}

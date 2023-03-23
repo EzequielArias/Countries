@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Pagination.css";
 
 const Pagination = ({
@@ -9,13 +9,14 @@ const Pagination = ({
 }) => {
   const [pageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5);
-  const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+  const [minPageNumberLimit, setminPageNumberLimit] = useState(1);
+
 
   let pages = [];
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-    pages.push(i);
-  }
+    for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+      pages.push(i);
+    }
 
   const handleNextBtn = (e) => {
     currentPage === 28
@@ -43,7 +44,7 @@ const Pagination = ({
     <div className="pagination-container">
       <button onClick={handlePrevbtn}>Prev</button>
       {pages.map((page, index) => {
-        if (page < maxPageNumberLimit + 1 && page > minPageNumberLimit) {
+        if (page < maxPageNumberLimit + 1 && page >= minPageNumberLimit) {
           return (
             <button
               key={index}
