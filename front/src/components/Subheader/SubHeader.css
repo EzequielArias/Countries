@@ -67,3 +67,10 @@
 .filters-container select:hover {
   border-bottom: 4px solid orange;
 }
+
+@media screen and (max-width:600px){
+  .filters-container{
+    display: flex;
+    flex-direction: column;
+  }
+}
