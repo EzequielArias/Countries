@@ -1,12 +1,13 @@
 .initial-container {
     height: 100vh;
-    background-image: url('../../assets/mapaMundi.jpeg');
-    background-repeat: no-repeat;
+    background-image: url('https://www.lavanguardia.com/files/image_948_465/files/fp/uploads/2022/05/05/62737e2e61ba3.r_d.3125-2084-1517.jpeg');
     background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
     display: flex;
     justify-content: center;
     align-items: center;
-
     
   }
   
@@ -16,9 +17,7 @@
   align-items: center;
 }
 
-.title-container a {
-  width: 60px;
-}
+
 /*.initial-container{
      Add the blur effect 
     filter: blur(8px);
@@ -32,6 +31,7 @@
 .initial-container h1 {
     font-size: 70px;
     font-weight: 900;
+    font-size: 110px;
     font-family: 'Dancing Script', cursive;
 
     -webkit-text-stroke-width: 2px;
@@ -66,6 +66,7 @@
 }
 .ov-btn-grow-ellipse:hover {
   color: #000;/* color de fuente hover */
+  cursor: pointer;
 }
 .ov-btn-grow-ellipse::after {
   content: "";

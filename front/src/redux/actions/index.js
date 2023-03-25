@@ -11,7 +11,7 @@ export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
 
 export const getCountries = () => {
   return async function (dispatch) {
-    let res = await axios.get("http://localhost:3001/countries");
+    let res = await axios.get("https://countries-api.fly.dev/countries");
 
     return dispatch({
       type: GET_ALL_COUNTRIES,
@@ -49,7 +49,7 @@ export const searchByName = (name) => {
 
 export const getActivities = () => {
   return async function (dispatch) {
-    let res = await axios.get("http://localhost:3001/activities");
+    let res = await axios.get("https://countries-api.fly.dev/activities");
     return dispatch({
       type: GET_ACTIVITIES,
       payload: res.data,
@@ -67,7 +67,7 @@ export const filterByActivity = (activityId) => {
     }
 
     let res = await axios.get(
-      `http://localhost:3001/activities?id=${activityId}`
+      `https://countries-api.fly.dev/activities?id=${activityId}`
     );
     return dispatch({
       type: FILTER_BY_ACTIVITY,
@@ -78,7 +78,7 @@ export const filterByActivity = (activityId) => {
 
 export const getCountryById = (id) => {
   return async function (dispatch) {
-    let res = await axios.get(`http://localhost:3001/countries/${id}`);
+    let res = await axios.get(`https://countries-api.fly.dev/countries/${id}`);
     return dispatch({
       type: GET_COUNTRY_BY_ID,
       payload: res.data[0],
@@ -89,7 +89,7 @@ export const getCountryById = (id) => {
 export const createActivity = (activity) => {
   return async function (dispatch) {
     try {
-      let res = await axios.post("http://localhost:3001/activities", activity);
+      let res = await axios.post("https://countries-api.fly.dev/activities", activity);
 
       return dispatch({
         type: CREATE_ACTIVITY,

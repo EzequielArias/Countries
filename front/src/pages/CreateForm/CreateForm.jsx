@@ -13,6 +13,7 @@ const CreateForm = () => {
     season: "",
     nation: [],
   };
+
   const dispatch = useDispatch();
   const seasons = ["Spring", "Summer", "Winter", "Autumn"];
   useEffect(() => {
@@ -110,7 +111,7 @@ const CreateForm = () => {
                 form.nation.length > 0 ? 
                 (
                   <div className="countries_contain">{form.nation.map(c => {
-                    if(c === 'Paises') return 
+                    if(c === 'Paises') return ''
                     return (
                       <div className="countries-div" onClick={deleteCountry}>{c}</div>
                     )
